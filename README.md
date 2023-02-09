@@ -26,6 +26,10 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
 ## Paquete para uso de mas comandos de laravel en lumen
 composer require flipbox/lumen-generator
 
+Agregar la siguiente linea al archivo bootstrap/app.php
+
+$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
 
 ## Comandos comunes de Lumen
 
