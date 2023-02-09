@@ -89,3 +89,17 @@ En el mismo archivo, buscamos Register Service Providers y agregamos
 $app->configure('filesystems');
 $app->register(Illuminate\Filesystem\FilesystemServiceProvider::class);
 
+## Helpers
+Muchos de los helpers de laravel no existen en Lumen por ejemplo public_path()
+se pueden incluir creando un archivo helpers.php dentro de la carpeta App.
+
+"autoload": {
+   "files": [
+      "app/helpers.php"
+   ],
+   ....
+  }
+},
+
+Finalmente ejecutamos el comando
+composer dump-autoload
