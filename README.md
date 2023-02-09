@@ -23,6 +23,13 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Paquete para uso de mas comandos de laravel en lumen
+composer require flipbox/lumen-generator
+
+Agregar la siguiente linea al archivo bootstrap/app.php
+
+$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
 
 ## Comandos comunes de Lumen
 
@@ -36,6 +43,9 @@ php -S localhost:8000 -t public
 Set configurarion key as random string from 32 characters long in .env file php 
 
 ## Database Commands
+## Modelos
+php artisan make:model NombreDelModelo -m (para que cree la migración correspondiente)
+
 ## Migraciones
 php artisan migrate
 php artisan migrate --force
