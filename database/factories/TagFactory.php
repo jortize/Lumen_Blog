@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 
 class TagFactory extends Factory
 {
-    protected $model = Model::class;
 
     public function definition(): array
     {

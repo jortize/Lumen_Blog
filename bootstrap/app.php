@@ -48,6 +48,14 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->singleton('filesystem', function ($app) {
+    return $app->loadComponent(
+        'filesystems',
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        'filesystem'
+    );
+});
+
 /*
 |--------------------------------------------------------------------------
 | Register Config Files
@@ -91,6 +99,8 @@ $app->configure('app');
 |
 */
 
+$app->configure('filesystems');
+$app->register(Illuminate\Filesystem\FilesystemServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
@@ -113,5 +123,6 @@ $app->router->group([
 });
 
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+
 
 return $app;

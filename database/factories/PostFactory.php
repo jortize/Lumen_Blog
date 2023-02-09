@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
-    protected $model = Model::class;
 
     public function definition(): array
     {

@@ -63,4 +63,29 @@ php artisan migrate:fresh --seed
 php artisan make:seeder NombreSeeder
 
 ## Factories
-No hay comando make:factory realizarlas en el seeder
+php artisan make:factory CategoryFactory
+
+## Uso del FileSystem para almacenar imagenes
+
+Instalamos las dependencias que no nos provee Lumen
+
+composer require league/flysystem
+composer require league/flysystem-aws-s3-v3   //almacenamiento en la nube
+
+Crear nuestro archivo /config/filesystems.php // seguimos el ejemplo de laravel
+
+Modificar el archivo /bootstrap/app.php. Lo primero es que en la sección de Register Container Bindings agregamos
+
+$app->singleton('filesystem', function ($app) {
+    return $app->loadComponent(
+        'filesystems',
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        'filesystem'
+    );
+});
+
+En el mismo archivo, buscamos Register Service Providers y agregamos
+
+$app->configure('filesystems');
+$app->register(Illuminate\Filesystem\FilesystemServiceProvider::class);
+

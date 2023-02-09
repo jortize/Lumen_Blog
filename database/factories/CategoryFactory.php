@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 
 class CategoryFactory extends Factory
 {
-    protected $model = Model::class;
 
     public function definition(): array
     {
