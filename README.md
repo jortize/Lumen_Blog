@@ -22,3 +22,35 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Comandos comunes de Lumen
+
+## Install
+composer create-project --prefer-dist laravel/lumen blog
+
+## Launch App o create virtualhost in xampp
+php -S localhost:8000 -t public
+
+## Configuration
+Set configurarion key as random string from 32 characters long in .env file php 
+
+## Database Commands
+## Migraciones
+php artisan migrate
+php artisan migrate --force
+php artisan migrate:refresh
+
+Refresh the database and run all database seeds...
+php artisan migrate:refresh --seed
+
+Eliminar todas las tablas y luego realiza la migración
+php artisan migrate:fresh
+ 
+php artisan migrate:fresh --seed
+
+## Seeders
+php artisan make:seeder NombreSeeder
+
+## Factories
+No hay comando make:factory realizarlas en el seeder
