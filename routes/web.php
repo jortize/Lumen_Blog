@@ -19,5 +19,6 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('users', ['uses' => 'UserController@showAllUsers']);
     $router->get('tags', ['uses' => 'TagsController@showAllTags']);
 });
