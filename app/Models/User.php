@@ -19,7 +19,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var string[]
      */
     protected $fillable = [
-        'name', 'email','password',
+        'name', 'email','password','role_id'
     ];
 
     /**
@@ -42,5 +42,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    public function role()
+    {
+        return $this->hasOne(Role::class, 'foreign_key');
     }
 }

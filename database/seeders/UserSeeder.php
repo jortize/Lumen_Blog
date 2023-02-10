@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,10 +17,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+       
+
         User::create([
             'name' => 'José Eduardo Ortiz Espinoza',
             'email' => 'eduardoortiz637@gmail.com',
-            'password' => Hash::make('Spiderman1992')
+            'password' => Hash::make('Spiderman1992'),
+            'role_id' => Role::all()->random()->id
         ]);
         User::factory(50)->create();
     }
