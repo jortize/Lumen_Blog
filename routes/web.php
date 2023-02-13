@@ -19,6 +19,12 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('users', ['uses' => 'UserController@showAllUsers']);
-    $router->get('tags', ['uses' => 'TagsController@showAllTags']);
+    $router->post('login', 'AuthController@login');
+    $router->post('logout', 'AuthController@logout');
+    $router->post('refresh', 'AuthController@refresh');
+});
+
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
+    $router->get('users', 'UserController@showAllUsers');
+    $router->get('tags', 'TagsController@showAllTags');
 });
