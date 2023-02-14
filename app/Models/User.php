@@ -42,6 +42,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin()
+{
+    if($this->role_id === 2)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *

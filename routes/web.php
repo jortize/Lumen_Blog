@@ -24,7 +24,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('refresh', 'AuthController@refresh');
 });
 
-$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
+$router->group(['prefix' => 'api', 'middleware' => ['auth','admin']], function () use ($router) {
     $router->get('users', 'UserController@showAllUsers');
     $router->get('tags', 'TagsController@showAllTags');
 });
