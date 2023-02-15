@@ -12,4 +12,24 @@ class UserController extends Controller
 
         return response()->json(User::all());
     }
+
+    public function showUser($id){
+        return response()->json(User::find($id),200);
+    }
+    public function create(Request $request){
+        $user  = User::create($request->all());
+
+        return response()->json($user,201);
+    }
+    public function update($id,Request $request){
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return response()->json($user,200);
+    }
+    public function delete($id){
+        User::findOrFail($id)->delete();
+
+        return response('Deleted Successfully',200);
+    }
+
 }

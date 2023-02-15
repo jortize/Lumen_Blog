@@ -26,5 +26,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
 $router->group(['prefix' => 'api', 'middleware' => ['auth','admin']], function () use ($router) {
     $router->get('users', 'UserController@showAllUsers');
+    $router->get('users/{id}', 'UserController@showUser');
+    $router->post('users', 'UserController@create');
+    $router->put('users', 'UserController@update');
+    $router->delete('users/{id}', 'UserController@delete');
     $router->get('tags', 'TagsController@showAllTags');
 });
